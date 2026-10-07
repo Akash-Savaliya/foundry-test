@@ -62,7 +62,7 @@ contract WalletTest is Test {
     }
 
     function sendEther(uint256 amount) public payable {
-        (bool success, ) = address(wallet).call{value: amount}("");
+        (bool success,) = address(wallet).call{value: amount}("");
         require(success, "Failed to send Ether");
     }
 
@@ -85,10 +85,7 @@ contract WalletTest is Test {
         sendEther(7 ether);
         print_Wallet_Balance();
 
-        assertEq(
-            address(wallet).balance,
-            initialBalance + 2 ether + 5 ether + 7 ether
-        );
+        assertEq(address(wallet).balance, initialBalance + 2 ether + 5 ether + 7 ether);
     }
 
     // withdraw tests

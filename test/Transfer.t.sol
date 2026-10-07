@@ -7,7 +7,11 @@ import {Transfer} from "../src/Transfer.sol";
 contract TransferTest is Test {
     Transfer public transferE;
 
-    event TransferSuccess(address indexed from, address indexed to, uint256 amount);
+    event TransferSuccess(
+        address indexed from,
+        address indexed to,
+        uint256 amount
+    );
 
     function setUp() public {
         transferE = new Transfer();
@@ -35,6 +39,7 @@ contract TransferTest is Test {
 
         for (uint256 i = 0; i < to.length; i++) {
             vm.expectEmit(true, true, false, true);
+            emit TransferSuccess(address(this), to[i], amount[i]);
             transferE.transer(address(this), to[i], amount[i]);
         }
     }

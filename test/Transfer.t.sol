@@ -7,11 +7,7 @@ import {Transfer} from "../src/Transfer.sol";
 contract TransferTest is Test {
     Transfer public transferE;
 
-    event TransferSuccess(
-        address indexed from,
-        address indexed to,
-        uint256 amount
-    );
+    event TransferSuccess(address indexed from, address indexed to, uint256 amount);
 
     function setUp() public {
         transferE = new Transfer();

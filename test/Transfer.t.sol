@@ -2,7 +2,7 @@
 pragma solidity ^0.8.37;
 
 import {Test} from "forge-std/Test.sol";
-import {Transfer} from "../src/Transfer.sol";
+import {Transfer} from "../src/Event.sol";
 
 contract TransferTest is Test {
     Transfer public transferE;

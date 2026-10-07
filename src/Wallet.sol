@@ -16,7 +16,7 @@ contract Wallet {
 
     function withdraw(uint256 _amount) external {
         require(msg.sender == owner, "caller is not owner");
-        (bool success, ) = payable(msg.sender).call{value: _amount}("");
+        (bool success,) = payable(msg.sender).call{value: _amount}("");
         require(success, "Failed to send Ether");
     }
 
